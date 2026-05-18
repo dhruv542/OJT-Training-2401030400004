@@ -7,12 +7,18 @@
     /* overflow-y: hidden; */
 }
 
+.main{
+    height: 100%;
+}
+
 .menu-icon span {
     /* background-color: red; */
     font-size: 35px;
     margin-left: 5px;
     cursor: pointer;
 }
+
+
 
 
 
@@ -137,6 +143,7 @@ p {
     width: 100%;
     position: relative;
     margin: auto;
+    /* height: 100%; */
 
 }
 
@@ -446,7 +453,9 @@ table th {
     border-radius: 8px;
     border: 1px solid #d4d4d4;
 }
-
+.b-image{
+    /* height: 100%; */
+}
 .g-icon{
     height: 25px;
 }
@@ -562,4 +571,54 @@ input[type="checkbox"]
     background-color: rgb(244, 241, 241);
     transition: ease;
     transition-duration: 0.5s;
+}
+
+.our{
+    width: 100%;
+    height: 80%;
+    background-color: #F3F5F6;
+}
+.view{
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: end;
+}
+.view p{
+    padding-left: 60px;
+    font-size: 22px;
+}
+.view a{
+    padding-right: 60px;
+}
+
+.view a p{
+    font-size: 16px;
+}
+.cir{
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* gap: 30px; */
+}
+.c1{
+    width: 14%;
+    height: 12.5rem;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/Arts_Crafts_Collection.jpg?v=1573640701&width=480);
+    background-size: cover;
+    background-position: center;
+    background-size: 100%;
+}
+
+.c1:hover{
+    border: 5px solid white;
+    transition: ease-in-out;
+    transition-duration: 0.6s;
 }
