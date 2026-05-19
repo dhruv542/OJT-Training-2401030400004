@@ -196,7 +196,7 @@ p {
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
-    display: inline-block;
+    display:none;
     transition: 0.6 linear;
 
 }
@@ -588,32 +588,35 @@ input[type="checkbox"]
 }
 .view p{
     padding-left: 60px;
-    font-size: 22px;
+    font-size: 26px;
 }
 .view a{
     padding-right: 60px;
+    text-decoration: none;
 }
 
 .view a p{
-    font-size: 16px;
+    font-size: 18px;
+    text-decoration: none;
 }
 .cir{
     /* background-color: aqua; */
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     /* gap: 30px; */
+    padding-top: 50px;
 }
 .c1{
-    width: 14%;
-    height: 12rem;
+    width: 200px;
+    height: 200px;
     background-color: #002080;
     border-radius: 50%;
     border: 10px solid white;
-    background-image: url(https://makerbazar.in/cdn/shop/collections/Arts_Crafts_Collection.jpg?v=1573640701&width=480);
-    background-size: 203px;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/Makerware_Collection_Bullet_-_Aeromodelling-02-02.png?v=1573633272&width=480);
+    background-size: 210px;
     background-position: center;
     /* background-size: 100%; */
     background-clip: content-box;
@@ -624,3 +627,264 @@ input[type="checkbox"]
     transition:ease-in-out;
     transition-duration: 0.8s;
 }
+
+.c2{
+    width: 200px;
+    height: 200px;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/Arts_Crafts_Collection.jpg?v=1573640701&width=480);
+    background-size: 210px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-clip: content-box;
+}
+
+.c2:hover{
+    border: 1px solid white;
+    transition:ease-in-out;
+    transition-duration: 0.8s;
+}
+
+.c3{
+    width: 200px;
+    height: 200px;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/3d_printer.jpg?v=1573633327&width=480);
+    background-size: 210px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-clip: content-box;
+}
+
+.c3:hover{
+    border: 1px solid white;
+    transition:ease-in-out;
+    transition-duration: 0.8s;
+}
+
+.c4{
+    width: 200px;
+    height: 200px;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/makerware_elements_new-02_1.png?v=1578559073&width=240);
+    background-size: 210px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-clip: content-box;
+}
+
+.c4:hover{
+    border: 1px solid white;
+    transition:ease-in-out;
+    transition-duration: 0.8s;
+}
+
+.c5{
+    width: 200px;
+    height: 200px;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/IOt_sensors.jpg?v=1573633211&width=480);
+    background-size: 210px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-clip: content-box;
+}
+
+.c5:hover{
+    border: 1px solid white;
+    transition:ease-in-out;
+    transition-duration: 0.8s;
+}
+
+.c6{
+    width: 200px;
+    height: 200px;
+    background-color: #002080;
+    border-radius: 50%;
+    border: 10px solid white;
+    background-image: url(https://makerbazar.in/cdn/shop/collections/Makerware_Collection_Bullet_-_Wood_Working-02-02-02_1.jpg?v=1573640654&width=480);
+    background-size: 210px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-clip: content-box;
+}
+
+.c6:hover{
+    border: 1px solid white;
+    transition:ease-in-out;
+    transition-duration: 0.8s;
+}
+
+.ci1{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: red; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.ci1 p{
+    font-size: 18px;
+    color: black;
+}
+
+.arrow{
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 20px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        gap: 5px;
+    }
+
+    .arrow .hov,
+    .arrow a{
+        display: inline-flex;
+        color: #212529;
+        text-decoration: none;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .arrow p{
+        margin: 0;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .arrow .material-symbols-outlined{
+        opacity: 0;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+        display: inline-flex;
+    }
+
+    .arrow:hover a,
+    .arrow:hover .material-symbols-outlined{
+        transform: translateX(-10px);
+    }
+
+    .arrow:hover .material-symbols-outlined{
+        opacity: 1;
+        color: red;
+    }
+
+    .arrow:hover{
+        background: transparent;
+    }
+    .cn{
+        color: black;
+    }
+    .va{
+        color: #db1212;
+    }
+
+.things{
+    width: 100%;
+    height: 80%;
+    background-color: red;
+    
+}
+.sale
+{
+    height: 70px;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sale:nth-child(1){
+    padding-left: 60px;
+}
+
+.sale :nth-child(2) :nth-child(1){
+    padding-right: 60px;
+}
+.things-menu{
+    width: 100%;
+    height: 87.5%;
+    background-color:red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+    
+}
+
+.things-menu *{
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+.t-image1{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/products/319k4kFGDGL.jpg?v=1638777467&width=500);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+.t-image2{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/files/ShoeCovers.webp?v=1701443851&width=1200);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+.t-image3{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/files/9bcd3fb5a89a9c967755ee9d98f0b8e3.jpg?v=1742614630&width=1200);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+.t-image4{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/products/SmallClip_7.jpg?v=1679058630&width=900);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+.t-image5{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/products/metal-grinding-wheel-500x500.jpg?v=1654357684&width=500);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+.t-image6{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+    background-image: url(https://makerbazar.in/cdn/shop/products/esdfootwearblue.jpg?v=1664380682&width=500);
+    background-size:98% 100% ;
+    background-position:center
+
+}
+
+.tg{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid white;
+}
+
