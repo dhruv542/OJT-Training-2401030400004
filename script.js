@@ -1,41 +1,104 @@
-let slideIndex = 1;
-const slides = document.getElementsByClassName("mySlides");
-const dots = document.getElementsByClassName("dot");
+// Slider initialization after DOM is ready
+function initSlider() {
+    const container = document.querySelector('.b-image');
+    if (!container) return null;
 
-if (slides.length > 0 && dots.length > 0) {
-    showslides(slideIndex);
-    setInterval(() => plusSlides(1), 5000);
+    const slides = Array.from(container.getElementsByClassName('mySlides'));
+    let dots = Array.from(document.getElementsByClassName('dot'));
+    let current = 0;
+    let intervalId = null;
+
+    function showSlide(index) {
+        if (slides.length === 0) return;
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        // Fallback: ensure opacity is applied directly if CSS class isn't taking effect
+        slides.forEach((s, i) => s.style.opacity = (i === index ? '1' : '0'));
+        if (dots.length === slides.length) {
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }
+    }
+
+    function nextSlide() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    }
+
+    function prevSlide() {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    }
+
+    function resetInterval() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, 1000); // change: auto-advance every 1 second
+    }
+
+    // Preload images and handle load/error
+    slides.forEach(s => {
+        const img = s.querySelector('img');
+        if (img && !img.complete) {
+            img.addEventListener('load', () => {}, { once: true });
+            img.addEventListener('error', () => { img.style.display = 'none'; }, { once: true });
+        }
+    });
+
+    // Ensure a visible starting slide
+    if (slides.length > 0) {
+        console.log('Slider: found', slides.length, 'slides and', dots.length, 'dots');
+        showSlide(0);
+        resetInterval();
+        // expose interval id for debugging
+        window.__sliderInterval = intervalId;
+    }
+
+    // Arrow controls
+    const left = container.querySelector('.d-left');
+    const right = container.querySelector('.d-right');
+    if (left) left.addEventListener('click', () => { prevSlide(); resetInterval(); });
+    if (right) right.addEventListener('click', () => { nextSlide(); resetInterval(); });
+
+    // Expose functions for inline `onclick` attributes compatibility
+    window.plusSlides = function(n) {
+        if (n > 0) nextSlide(); else prevSlide();
+        resetInterval();
+    };
+
+    window.currentSlide = function(n) {
+        if (!slides.length) return;
+        current = (n - 1 + slides.length) % slides.length;
+        showSlide(current);
+        resetInterval();
+    };
+
+    // Dot controls. If dots not present, create them below the slider.
+    if (dots.length) {
+        dots.forEach((d, i) => d.addEventListener('click', () => { current = i; showSlide(current); resetInterval(); }));
+    } else {
+        const dotsWrapper = document.createElement('div');
+        dotsWrapper.style.textAlign = 'center';
+        dotsWrapper.style.marginTop = '10px';
+        slides.forEach((_, i) => {
+            const d = document.createElement('span');
+            d.className = 'dot' + (i === 0 ? ' active' : '');
+            d.addEventListener('click', () => { current = i; showSlide(current); resetInterval(); });
+            dotsWrapper.appendChild(d);
+        });
+        container.insertAdjacentElement('afterend', dotsWrapper);
+        dots = Array.from(dotsWrapper.getElementsByClassName('dot'));
+    }
+
+    // Pause on hover
+    container.addEventListener('mouseenter', () => { if (intervalId) clearInterval(intervalId); });
+    container.addEventListener('mouseleave', () => resetInterval());
+
+    return { start: resetInterval, stop: () => clearInterval(intervalId) };
 }
 
-function plusSlides(n) {
-    if (slides.length > 0 && dots.length > 0) {
-        showslides(slideIndex += n);
-    }
-}
-
-function currentSlide(n) {
-    if (slides.length > 0 && dots.length > 0) {
-        showslides(slideIndex = n);
-    }
-}
-
-function showslides(n) {
-    if (slides.length === 0 || dots.length === 0) return;
-    let i;
-    if (n > slides.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+// Initialize immediately if DOM already loaded, otherwise wait for DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+} else {
+    initSlider();
 }
 
 // Toggle table display on menu icon click
