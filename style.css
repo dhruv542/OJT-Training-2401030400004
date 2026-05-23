@@ -1069,3 +1069,239 @@ input[type="checkbox"]
     height: 50%;
 }
 
+.just{
+    width: 100%;
+    height: 200%;
+    background-color: #ebeef5;
+}
+
+.j-arr{
+    width: 100%;
+    height: 70px;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding-top: 10px;
+}
+.j-arr a {
+    text-decoration: none;
+    padding-right: 60px;
+}
+.j-arr a p{
+    font-size: 18px;
+    color: #db1212;
+    padding-top: 35px;
+    margin-top: 20px;
+}
+
+.j-arr p{
+    padding-top: 35px;
+    padding-left: 60px;
+    font-size: 26px;
+    color: #000;
+    margin-top: 15px;
+    
+}
+
+.j-g{
+    width: 100%;
+    height: 95%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    
+}
+
+.jgr{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    /* padding-top: 20px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    
+}
+.j1{
+    grid-column-start:1 ;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border: 1px solid black;
+}
+.j2{
+    grid-column-start:1 ;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    border: 1px solid black;
+}
+.j3{
+    grid-column-start:2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border: 1px solid black;
+}
+.j4{
+    grid-column-start:2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border: 1px solid black;
+}
+.j5{
+    grid-column-start:2 ;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: 1px solid black;
+}
+.j6{
+    grid-column-start:2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    border: 1px solid black;
+}
+.j7{
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border: 1px solid black;
+}
+.j8{
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    border: 1px solid black;
+}
+.j9{
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border: 1px solid black;
+}
+.j10{
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border: 1px solid black;
+}
+.j11{
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: 1px solid black;
+}
+.j12{
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    border: 1px solid black;
+}
+
+.jgr *{
+    border: 1px solid #d4d4d4;
+}
+
+.d-box{
+    width: 100%;
+    height: 130%;
+    background-color: #ebeef5;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    /* border: 1px solid #d4d4d4; */
+}
+.d-panel{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    background-color:red;
+    border: 1px solid #d4d4d4;
+}
+
+.p-gallary{
+    width: 10%;
+    height: 100%;
+    /* background-color: #002080; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.p-im{
+    width: 40%;
+    height: 100%;
+    background-color: #F6A704;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.p-card{
+    width: 50%;
+    height: 100%;
+    /* background-color: #BC60D0; */
+    border-left: 1px solid #d4d4d4;
+}
+
+.p-div{
+    width: 100%;
+    height: 70%;
+    overflow-x: hidden;
+    overflow-y:auto;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: 35px;
+
+}
+
+.i-div{
+    width: 75px;
+    height: 75px;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.i-div:hover{
+    /* transform: scale(0.9, 0.9); */
+    border: 2px solid #db1212;
+    transition: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.p-im .p-o-im{
+    width: 500px;
+    height: 500px;
+    background-image: url(https://makerbazar.in/cdn/shop/products/XYQ-2QuadcopterDIYKit.webp?v=1717829421&width=800);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.p-im .ist{
+    background-color: yellow;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    
+}
+
+
+
+
+
