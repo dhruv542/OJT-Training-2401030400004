@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TapriFood – Hot & Fresh, Right to Your Door</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./dist/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange:    #FF5C1A;
+      --orange-lt: #FFF0E9;
+      --orange-dk: #C93F07;
+      --yellow:    #FFBD2E;
+      --cream:     #FFF8F2;
+      --dark:      #1A0A00;
+      --dark-2:    #3A1F08;
+      --mid:       #7A5540;
+      --light:     #C4A48A;
+      --white:     #FFFFFF;
+      --card-bg:   #FFFCFA;
+      --border:    rgba(255,92,26,0.12);
+      --shadow:    0 8px 32px rgba(26,10,0,0.10);
+      --radius:    18px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 99px; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,248,242,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transform: rotate(-4deg);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-ghost {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 8px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--dark);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      border-radius: 99px;
+      padding: 10px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--orange-dk); transform: translateY(-1px); }
+
+    .cart-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      background: var(--orange-lt);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: background 0.2s;
+    }
+
+    .cart-btn:hover { background: var(--orange); }
+    .cart-btn:hover svg path { stroke: white; }
+
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--orange);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--cream);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 60px 5vw;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,92,26,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-lt);
+      border: 1px solid rgba(255,92,26,0.2);
+      border-radius: 99px;
+      padding: 6px 16px 6px 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--orange-dk);
+      margin-bottom: 24px;
+      width: fit-content;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.6; }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--yellow);
+      border-radius: 99px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .hero-search {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      padding: 8px 8px 8px 20px;
+      gap: 12px;
+      max-width: 500px;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .hero-search svg { flex-shrink: 0; color: var(--light); }
+
+    .hero-search input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .hero-search input::placeholder { color: var(--light); }
+
+    .hero-search button {
+      background: var(--orange);
+      color: white;
+      border: none;
+      border-radius: 99px;
+      padding: 10px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .hero-search button:hover { background: var(--orange-dk); }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--dark); }
+    .stat-label { font-size: 0.8rem; color: var(--mid); }
+
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    /* Hero image side */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-circle {
+      width: 460px;
+      height: 460px;
+      background: var(--orange-lt);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-food-img {
+      font-size: 180px;
+      line-height: 1;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-16px); }
+    }
+
+    .hero-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      box-shadow: 0 12px 40px rgba(26,10,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-card-1 { top: 30px; left: -10px; }
+    .hero-card-2 { bottom: 60px; right: -20px; }
+
+    .hero-card-icon { font-size: 28px; }
+    .hero-card-label { font-size: 0.75rem; color: var(--mid); }
+    .hero-card-value { font-size: 1rem; font-weight: 700; color: var(--dark); }
+
+    /* ===== SECTION TITLES ===== */
+    .section { padding: 80px 5vw; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .see-all {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .see-all:hover { gap: 10px; }
+
+    /* ===== CATEGORIES ===== */
+    .categories-bg { background: var(--white); }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    .cat-card {
+      background: var(--cream);
+      border: 1.5px solid transparent;
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cat-card:hover {
+      border-color: var(--orange);
+      background: var(--orange-lt);
+      transform: translateY(-4px);
+    }
+
+    .cat-card.active {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .cat-card.active .cat-name { color: var(--white); }
+
+    .cat-emoji { font-size: 36px; line-height: 1; }
+    .cat-name { font-size: 0.88rem; font-weight: 600; color: var(--dark-2); }
+    .cat-count { font-size: 0.75rem; color: var(--light); }
+
+    /* ===== FOOD CARDS ===== */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .food-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(26,10,0,0.12);
+    }
+
+    .food-img {
+      height: 180px;
+      background: var(--orange-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      position: relative;
+    }
+
+    .food-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--yellow);
+      color: var(--dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .food-fav {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .food-fav:hover { transform: scale(1.2); }
+
+    .food-info { padding: 16px; }
+    .food-restaurant { font-size: 0.75rem; color: var(--light); margin-bottom: 4px; font-weight: 500; }
+    .food-name { font-size: 1.02rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+
+    .food-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .food-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--dark-2);
+    }
+
+    .star { color: var(--yellow); font-size: 13px; }
+
+    .food-time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+
+    .food-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .food-price { font-size: 1.2rem; font-weight: 800; color: var(--orange); }
+    .food-price span { font-size: 0.78rem; font-weight: 400; color: var(--light); }
+
+    .add-btn {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 20px;
+      font-weight: 300;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .add-btn:hover { background: var(--orange-dk); transform: scale(1.1); }
+
+    /* ===== BANNER ===== */
+    .promo-banner {
+      margin: 0 5vw;
+      background: var(--dark);
+      border-radius: 28px;
+      padding: 60px 80px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      right: 200px;
+      top: -80px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,92,26,0.15);
+      border-radius: 50%;
+    }
+
+    .promo-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+
+    .promo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .promo-title em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .promo-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 420px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .promo-emoji {
+      font-size: 120px;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+    }
+
+    /* ===== RESTAURANTS ===== */
+    .restaurants-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .restaurant-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .restaurant-cover {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      position: relative;
+    }
+
+    .restaurant-cover-1 { background: linear-gradient(135deg, #FFF0E9, #FFD6C0); }
+    .restaurant-cover-2 { background: linear-gradient(135deg, #E9F5FF, #C0DEFF); }
+    .restaurant-cover-3 { background: linear-gradient(135deg, #F0FFE9, #C0F5C9); }
+    .restaurant-cover-4 { background: linear-gradient(135deg, #FFF9E9, #FFE8A0); }
+    .restaurant-cover-5 { background: linear-gradient(135deg, #F9E9FF, #E0C0FF); }
+    .restaurant-cover-6 { background: linear-gradient(135deg, #FFE9F0, #FFC0D6); }
+
+    .restaurant-open {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #1DB954;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .restaurant-body { padding: 18px; }
+    .restaurant-name { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .restaurant-cuisine { font-size: 0.8rem; color: var(--light); margin-bottom: 12px; }
+
+    .restaurant-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+
+    .meta-item svg { flex-shrink: 0; }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-bg { background: var(--white); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--border) 0, var(--border) 8px, transparent 8px, transparent 20px);
+    }
+
+    .step-card {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-num {
+      width: 72px;
+      height: 72px;
+      background: var(--orange-lt);
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num-label {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      background: var(--orange);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .step-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+
+    /* ===== TESTIMONIALS ===== */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--dark-2);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: var(--orange-lt);
+    }
+
+    .review-name { font-size: 0.92rem; font-weight: 700; color: var(--dark); }
+    .review-loc { font-size: 0.78rem; color: var(--light); }
+
+    /* ===== APP DOWNLOAD ===== */
+    .app-section {
+      margin: 0 5vw 80px;
+      background: var(--orange);
+      border-radius: 28px;
+      padding: 60px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .app-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .app-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .app-btns { display: flex; gap: 14px; }
+
+    .app-store-btn {
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 14px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .app-store-btn:hover { background: rgba(255,255,255,0.25); }
+
+    .app-store-icon { font-size: 28px; }
+
+    .app-store-text { text-align: left; }
+    .app-store-sub { font-size: 0.72rem; color: rgba(255,255,255,0.7); }
+    .app-store-name { font-size: 0.95rem; font-weight: 700; color: white; }
+
+    .app-phones {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 100px;
+      filter: drop-shadow(0 24px 60px rgba(0,0,0,0.25));
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: var(--cream);
+      padding: 80px 5vw;
+      text-align: center;
+    }
+
+    .newsletter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .newsletter-desc {
+      font-size: 1rem;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 8px 8px 8px 22px;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .newsletter-form input::placeholder { color: var(--light); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.65);
+      padding: 60px 5vw 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo-text { color: white; }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 16px 0 24px;
+      max-width: 280px;
+    }
+
+    .social-links { display: flex; gap: 12px; }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .social-link:hover { background: var(--orange); }
+
+    .footer-col h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: var(--orange); }
+  </style> -->
+</head>
+<body class="bg-[#FFF8F2]">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class=" flex flex-row justify-between items-center h-18 border-b border-orange-200 ">
+    <a href="#" class="flex flex-row pl-10 text-2xl items-center"  >
+      <div class="logo-icon  w-12 h-12 flex items-center justify-center rounded-xl bg-[#FF5C1A]">🍜</div>
+      <span class="logo-text pl-3">Tapri<span>Food</span></span>
+    </a>
+
+    <ul  class=" flex flex-row justify-between gap-8 w-s text-base items-center text-[#4C3225] "  >
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#restaurants">Restaurants</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="nav-actions flex flex-row gap-2.5 items-center pr-10 w-80">
+      <button class="btn-ghost border rounded-3xl  w-50/4 h-10 text-base border-orange-200" >Sign In</button>
+      <button class=" w-50/4 h-10 text-white rounded-3xl bg-[#FF5C1A] ">Get App</button>
+      <button class="w-20/4  bg-orange-200 rounded-3xl" aria-label="Cart">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke="#FF5C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class=" rounded-3xl">3</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero bg-purple-00">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Now delivering in Ahmedabad
+      </div>
+      <h1>
+        Crave It,<br>
+        Order It,<br>
+        <em>Devour It</em>
+      </h1>
+      <p>
+        From street-style chai to five-star biryani — TapriFood brings the best of your city's food scene straight to your doorstep. Fresh, fast, and always delicious.
+      </p>
+      <div class="hero-search">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" stroke="#C4A48A" stroke-width="1.8"/>
+          <circle cx="12" cy="10" r="3" stroke="#C4A48A" stroke-width="1.8"/>
+        </svg>
+        <input type="text" placeholder="Enter your delivery address…"/>
+        <button>Find Food</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Restaurants</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">30 min</span>
+          <span class="stat-label">Avg Delivery</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">4.9 ⭐</span>
+          <span class="stat-label">App Rating</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-circle">
+        <div class="hero-food-img">🍛</div>
+      </div>
+      <div class="hero-card hero-card-1">
+        <span class="hero-card-icon">🛵</span>
+        <div>
+          <div class="hero-card-label">Delivery Status</div>
+          <div class="hero-card-value">On the way!</div>
+        </div>
+      </div>
+      <div class="hero-card hero-card-2">
+        <span class="hero-card-icon">🔥</span>
+        <div>
+          <div class="hero-card-label">Trending Today</div>
+          <div class="hero-card-value">Butter Chicken</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section categories-bg" id="menu">
+    <div class="section-header">
+      <div>
+        <p class="section-tag">Browse by Category</p>
+        <h2 class="section-title">What are you<br>craving today?</h2>
+      </div>
+      <a href="#" class="see-all">All categories →</a>
+    </div>
+    <div class="categories-grid">
+      <a href="#" class="cat-card active">
+        <span class="cat-emoji">🍕</span>
+        <span class="cat-name">Pizza</span>
+        <span class="cat-count">48 places</span>
+      </a>
+      <a href="#" class="cat-card">
+        <span class="cat-emoji">🍔</span>
+        <span class="cat-name">Burgers</span>
+        <span class="cat-count">36 places</span>
+      </a>
+      <a href="#" class="cat-card">
+        <span class="cat-emoji">🍛</span>
+        <span class="cat-name">Indian</span>
+        <span class="cat-count">120 places</span>
+      </a>
+      <a href="#" class="cat-card">
+        <span class="cat-emoji">🍣</span>
+        <span class="cat-name">Sushi</span>
+        <span class="cat-count">22 places</span>
+      </a>
+      <a href="#" class="cat-card">
+        <span class="cat-emoji">🥗</span>
+        <span class="cat-name">Healthy</span>
+        <span class="cat-count">44 places</span>
+      </a>
+      <a href="#" class="cat-card">
+        <span class="cat-emoji">🧋</span>
+        <span class="cat-name">Drinks</span>
+        <span class="cat-count">58 places</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR DISHES ===== -->
+  <section class="section" id="offers">
+    <div class="section-header">
+      <div>
+        <p class="section-tag">🔥 Trending Now</p>
+        <h2 class="section-title">Popular Dishes</h2>
+      </div>
+      <a href="#" class="see-all">View all →</a>
+    </div>
+    <div class="food-grid">
+      <!-- Card 1 -->
+      <div class="food-card">
+        <div class="food-img">
+          🍕
+          <span class="food-badge">Bestseller</span>
+          <span class="food-fav">🤍</span>
+        </div>
+        <div class="food-info">
+          <p class="food-restaurant">Domino's India</p>
+          <p class="food-name">Chicken Tikka Pizza</p>
+          <div class="food-meta">
+            <span class="food-rating"><span class="star">★</span> 4.8 (320)</span>
+            <span class="food-time">⏱ 25 min</span>
+          </div>
+          <div class="food-footer">
+            <div class="food-price">₹349 <span>/ plate</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="food-card">
+        <div class="food-img" style="background: #FFF5E9;">
+          🍔
+          <span class="food-badge">20% OFF</span>
+          <span class="food-fav">❤️</span>
+        </div>
+        <div class="food-info">
+          <p class="food-restaurant">Burger King</p>
+          <p class="food-name">Whopper Deluxe</p>
+          <div class="food-meta">
+            <span class="food-rating"><span class="star">★</span> 4.6 (218)</span>
+            <span class="food-time">⏱ 20 min</span>
+          </div>
+          <div class="food-footer">
+            <div class="food-price">₹249 <span>/ plate</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="food-card">
+        <div class="food-img" style="background: #F0FFF5;">
+          🍛
+          <span class="food-badge">Chef's Pick</span>
+          <span class="food-fav">🤍</span>
+        </div>
+        <div class="food-info">
+          <p class="food-restaurant">Biryani House</p>
+          <p class="food-name">Dum Biryani (Chicken)</p>
+          <div class="food-meta">
+            <span class="food-rating"><span class="star">★</span> 4.9 (512)</span>
+            <span class="food-time">⏱ 35 min</span>
+          </div>
+          <div class="food-footer">
+            <div class="food-price">₹199 <span>/ plate</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="food-card">
+        <div class="food-img" style="background: #F5F0FF;">
+          🍣
+          <span class="food-badge">New</span>
+          <span class="food-fav">🤍</span>
+        </div>
+        <div class="food-info">
+          <p class="food-restaurant">Tokyo Bites</p>
+          <p class="food-name">Dragon Roll (8 pcs)</p>
+          <div class="food-meta">
+            <span class="food-rating"><span class="star">★</span> 4.7 (88)</span>
+            <span class="food-time">⏱ 30 min</span>
+          </div>
+          <div class="food-footer">
+            <div class="food-price">₹450 <span>/ plate</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-banner">
+    <div>
+      <p class="promo-tag">⚡ Limited Time Offer</p>
+      <h2 class="promo-title">Get <em>50% Off</em><br>Your First Order</h2>
+      <p class="promo-desc">Use code <strong style="color:white;">TAPRI50</strong> at checkout. Valid on orders above ₹199. New users only.</p>
+      <button class="btn-primary" style="font-size:1rem; padding:14px 36px;">Order Now →</button>
+    </div>
+    <div class="promo-emoji">🎉</div>
+  </div>
+
+  <!-- ===== RESTAURANTS ===== -->
+  <section class="section" id="restaurants">
+    <div class="section-header">
+      <div>
+        <p class="section-tag">Top Picks</p>
+        <h2 class="section-title">Featured Restaurants</h2>
+      </div>
+      <a href="#" class="see-all">All restaurants →</a>
+    </div>
+    <div class="restaurants-grid">
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-1">
+          🍕
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">The Pizza Republic</p>
+          <p class="restaurant-cuisine">Pizza · Italian · Pasta</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.8</span>
+            <span class="meta-item">🕐 25–30 min</span>
+            <span class="meta-item">🛵 ₹29</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-3">
+          🍛
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">Biryani By Kilo</p>
+          <p class="restaurant-cuisine">Biryani · North Indian · Kebab</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.9</span>
+            <span class="meta-item">🕐 35–45 min</span>
+            <span class="meta-item">🛵 Free</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-2">
+          🍜
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">Wok In The Cloud</p>
+          <p class="restaurant-cuisine">Chinese · Thai · Asian</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.6</span>
+            <span class="meta-item">🕐 20–30 min</span>
+            <span class="meta-item">🛵 ₹19</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-4">
+          🥗
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">Green Bowl Co.</p>
+          <p class="restaurant-cuisine">Salads · Smoothies · Healthy</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.7</span>
+            <span class="meta-item">🕐 20 min</span>
+            <span class="meta-item">🛵 ₹15</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-5">
+          🍩
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">Sweet Surrender</p>
+          <p class="restaurant-cuisine">Desserts · Cakes · Bakes</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.8</span>
+            <span class="meta-item">🕐 30 min</span>
+            <span class="meta-item">🛵 ₹25</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="restaurant-cover restaurant-cover-6">
+          🥪
+          <span class="restaurant-open">Open Now</span>
+        </div>
+        <div class="restaurant-body">
+          <p class="restaurant-name">Sandwich Republic</p>
+          <p class="restaurant-cuisine">Sandwiches · Wraps · Rolls</p>
+          <div class="restaurant-meta">
+            <span class="meta-item">⭐ 4.5</span>
+            <span class="meta-item">🕐 15–20 min</span>
+            <span class="meta-item">🛵 Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section how-bg" id="about">
+    <div class="section-header">
+      <div>
+        <p class="section-tag">Simple Steps</p>
+        <h2 class="section-title">How TapriFood Works</h2>
+      </div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">
+          🏠
+          <span class="step-num-label">1</span>
+        </div>
+        <h3 class="step-title">Enter your location</h3>
+        <p class="step-desc">Drop your delivery address and discover the best restaurants nearby you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">
+          🍽️
+          <span class="step-num-label">2</span>
+        </div>
+        <h3 class="step-title">Browse & pick</h3>
+        <p class="step-desc">Explore menus from hundreds of restaurants and add your favourites to cart.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">
+          💳
+          <span class="step-num-label">3</span>
+        </div>
+        <h3 class="step-title">Pay securely</h3>
+        <p class="step-desc">Multiple payment options — UPI, cards, wallets, or cash on delivery.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">
+          🛵
+          <span class="step-num-label">4</span>
+        </div>
+        <h3 class="step-title">Fast delivery</h3>
+        <p class="step-desc">Track your order live on the map. Hot food at your door in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="section-tag">❤️ Happy Customers</p>
+        <h2 class="section-title">What People Say</h2>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"TapriFood has completely changed how I eat. The delivery is insanely fast and the food always arrives piping hot. The app is so easy to use too!"</p>
+        <div class="review-author">
+          <div class="review-avatar">👩</div>
+          <div>
+            <p class="review-name">Priya Sharma</p>
+            <p class="review-loc">Ahmedabad, Gujarat</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"I order from TapriFood almost every day for lunch. The variety is incredible — I've discovered so many amazing local restaurants through the app."</p>
+        <div class="review-author">
+          <div class="review-avatar">👨</div>
+          <div>
+            <p class="review-name">Rahul Mehta</p>
+            <p class="review-loc">Surat, Gujarat</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"The customer support is excellent and the app never crashes. My go-to food delivery app. Highly recommend TapriFood to everyone!"</p>
+        <div class="review-author">
+          <div class="review-avatar">👩‍💼</div>
+          <div>
+            <p class="review-name">Anjali Patel</p>
+            <p class="review-loc">Vadodara, Gujarat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APP DOWNLOAD ===== -->
+  <div class="app-section">
+    <div>
+      <h2 class="app-title">Download the TapriFood App</h2>
+      <p class="app-desc">Get exclusive app-only deals, live order tracking, and a seamless ordering experience on iOS and Android.</p>
+      <div class="app-btns">
+        <button class="app-store-btn">
+          <span class="app-store-icon">🍎</span>
+          <div class="app-store-text">
+            <p class="app-store-sub">Download on the</p>
+            <p class="app-store-name">App Store</p>
+          </div>
+        </button>
+        <button class="app-store-btn">
+          <span class="app-store-icon">▶</span>
+          <div class="app-store-text">
+            <p class="app-store-sub">Get it on</p>
+            <p class="app-store-name">Google Play</p>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="app-phones">📱</div>
+  </div>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <p class="section-tag" style="text-align:center; margin-bottom:10px;">Stay in the Loop</p>
+    <h2 class="newsletter-title">Get the Best Deals First</h2>
+    <p class="newsletter-desc">Subscribe for exclusive offers, new restaurant alerts, and foodie tips.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address…"/>
+      <button class="btn-primary" style="padding:10px 28px; white-space:nowrap;">Subscribe</button>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="logo-icon" style="background: var(--orange);">🍜</div>
+          <span class="logo-text">Tapri<span style="color:var(--orange);">Food</span></span>
+        </a>
+        <p>Bringing the best food from your city's top restaurants to your doorstep — fast, fresh, and delicious.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">👥</a>
+          <a href="#" class="social-link">▶</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Partner with Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#">Restaurants</a></li>
+          <li><a href="#">Popular Dishes</a></li>
+          <li><a href="#">Offers & Deals</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">TapriFood Pro</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Report an Issue</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 TapriFood. All rights reserved. Made with ❤️ in India.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
