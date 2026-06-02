@@ -1,0 +1,16 @@
+{
+  "name": "makerbazar-mern",
+  "version": "1.0.0",
+  "description": "Full-stack MERN MakerBazar clone",
+  "main": "backend/server.js",
+  "scripts": {
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "seed": "node backend/data/seedProducts.js"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
