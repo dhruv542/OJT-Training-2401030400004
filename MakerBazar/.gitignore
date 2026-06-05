@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+
+# Ignore backend dependencies and environment files
+backend/node_modules/
+backend/.env
+
+# Ignore frontend dependencies
+frontend/node_modules/
